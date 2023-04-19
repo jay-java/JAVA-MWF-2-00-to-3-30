@@ -14,13 +14,6 @@ public class StringDemo {
 		System.out.println(name.compareToIgnoreCase(name2));
 		System.out.println(name.equals(name2));
 		System.out.println(name.equalsIgnoreCase(name2));
-		System.out.println(name.endsWith("P"));
-		String a = "		ja   va			";
-		System.out.println(a.isBlank());
-		System.out.println(a.isEmpty());
-		System.out.println(name.hashCode());
-		System.out.println(a);
-		System.out.println(a.trim());
 	}
 }
 
