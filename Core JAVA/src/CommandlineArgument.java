@@ -1,0 +1,12 @@
+
+public class CommandlineArgument {
+	public static void main(String[] args) {
+		for(String s:args) {
+			System.out.println(s);
+		}
+		
+//		System.out.println(args[0]);
+//		System.out.println(args[1]);
+//		System.out.println(args[2]);
+	}
+}

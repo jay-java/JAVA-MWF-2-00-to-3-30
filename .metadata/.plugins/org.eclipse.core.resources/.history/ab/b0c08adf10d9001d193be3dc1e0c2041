@@ -1,0 +1,11 @@
+package xyz;
+class abc{
+	public void run() {
+		System.out.println("hello");
+	}
+}
+public class Second {
+	public static void main(String[] args) {
+		System.out.println("main method in second class");
+	}
+}
