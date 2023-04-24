@@ -1,0 +1,8 @@
+//constructor -> special member function of class which has same name as class name
+//			  -> have no retur type
+//			  -> automatically called when object is created
+public class ConstructorDemo {
+	public static void main(String[] args) {
+
+	}
+}

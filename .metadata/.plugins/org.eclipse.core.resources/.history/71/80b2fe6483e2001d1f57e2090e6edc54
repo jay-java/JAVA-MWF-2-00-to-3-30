@@ -1,0 +1,14 @@
+class Student{
+	int id;
+	String name;
+	double per;
+	String cname;
+	Student(){
+		
+	}
+}
+public class StaticKeyword {
+	public static void main(String[] args) {
+		
+	}
+}

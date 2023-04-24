@@ -1,0 +1,18 @@
+//constructor -> special member function of class which has same name as class name
+//			  -> have no return type
+//			  -> automatically called when object is created
+
+//3 types -> 1.default 2.parameterized 3.copy
+class Cons{
+	 Cons(){
+		System.out.println("defualt cons");
+	}
+	public void run() {
+		System.out.println("run function");
+	}
+}
+public class ConstructorDemo {
+	public static void main(String[] args) {
+
+	}
+}

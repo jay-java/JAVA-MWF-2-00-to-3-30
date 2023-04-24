@@ -1,0 +1,6 @@
+//constructor -> special member function of class which has same name as class name
+public class ConstructorDemo {
+	public static void main(String[] args) {
+
+	}
+}
