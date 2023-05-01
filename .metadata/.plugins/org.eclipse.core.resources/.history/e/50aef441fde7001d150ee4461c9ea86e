@@ -1,0 +1,12 @@
+package OOPS;
+//Encapsulation -> to wrapping up data into single unit.
+class Data{
+	int id;
+	String name;
+	double per;
+}
+public class EncapsulationDemo {
+	public static void main(String[] args) {
+		
+	}
+}

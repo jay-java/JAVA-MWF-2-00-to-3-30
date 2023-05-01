@@ -1,0 +1,9 @@
+package OOPS;
+//interface->interface is same as class but not class
+//we cannot create object of interface
+//by default all properties in interface are abstract(without abstract keyword)
+public class INterfaceDemo {
+	public static void main(String[] args) {
+		
+	}
+}

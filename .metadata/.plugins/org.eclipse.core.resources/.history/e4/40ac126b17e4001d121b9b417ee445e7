@@ -1,0 +1,7 @@
+package OOPS;
+
+public interface multuipleINheritance {
+	public static void main(String[] args) {
+		
+	}
+}

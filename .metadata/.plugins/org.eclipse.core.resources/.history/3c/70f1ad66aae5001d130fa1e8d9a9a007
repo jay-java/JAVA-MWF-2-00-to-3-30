@@ -1,0 +1,18 @@
+package OOPS;
+//abstraction -> hiding internal details and showing only essential
+//			    information to user
+class RBI{
+	abstract public void interest();
+	abstract public void HL();
+}
+class SBI extends RBI{
+	
+}
+class JAVA extends RBI{
+	
+}
+public class AbstractionDemo {
+	public static void main(String[] args) {
+		
+	}
+}

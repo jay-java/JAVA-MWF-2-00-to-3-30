@@ -1,0 +1,6 @@
+package OOPS;
+//polymorphism->poly(many) morphism(forms)==>same method name
+//				but having different functionalities
+public class Polymorhpism {
+
+}

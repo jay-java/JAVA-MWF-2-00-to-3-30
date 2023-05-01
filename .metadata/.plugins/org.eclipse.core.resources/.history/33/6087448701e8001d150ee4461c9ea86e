@@ -1,0 +1,17 @@
+package OOPS;
+//1.final variable->we cannot change value of variable
+//2.final method->then that method cannot be override
+//3.final class ->class cannot be inherited
+class AAA{
+	final int i=10;
+	public void call() {
+		i++;
+		System.out.println(" i = "+i);
+	}
+}
+public class FinalKeyword {
+	public static void main(String[] args) {
+		AAA a = new AAA();
+		a.call();
+	}
+}

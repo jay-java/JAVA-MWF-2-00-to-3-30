@@ -1,0 +1,21 @@
+package OOPS;
+class Parent1{
+	public void parentMethod(){
+		System.out.println("parent class");
+	}
+}
+class Child1 extends Parent1{
+	public void child1Method(){
+		System.out.println("child1 class");
+	}	
+}
+class Child2 extends Parent1{
+	public void child2Method(){
+		System.out.println("child2 class");
+	}
+}
+public class Hirarchical {
+	public static void main(String[] args) {
+		
+	}
+}

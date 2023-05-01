@@ -1,5 +1,3 @@
-import org.w3c.dom.css.Rect;
-
 //constructor -> special member function of class which has same name as class name
 //			  -> have no return type
 //			  -> automatically called when object is created

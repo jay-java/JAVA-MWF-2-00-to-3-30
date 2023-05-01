@@ -1,0 +1,39 @@
+package OOPS;
+//Encapsulation -> to wrapping up data into single unit.
+class Data{
+	private int id;
+	private String name;
+	private double per;
+	public void setId(int id) {
+		this.id=id;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setName(String name) {
+		this.name=name;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setPer(double per) {
+		this.per=per;
+	}
+	public double getPer() {
+		return per;
+	}
+}
+public class EncapsulationDemo {
+	public static void main(String[] args) {
+		Data d1 =new Data();
+		d1.setId(12);
+		d1.id=34;
+		d1.setId(45);
+		d1.setName("java");
+		d1.name="abc";
+		d1.setPer(67.5);
+		System.out.println(d1.getId());
+		System.out.println(d1.getName());
+		System.out.println(d1.getPer());
+	}
+}
