@@ -22,8 +22,14 @@
     <fullyQualifiedTypeName name="OOPS.SBI"/>
     <fullyQualifiedTypeName name="OOPS.JAVA"/>
     <fullyQualifiedTypeName name="OOPS.Data"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="OOPS.AAA"/>
     <fullyQualifiedTypeName name="OOPS.B"/>
     <fullyQualifiedTypeName name="OOPS.InterfaceCall"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.Throwable"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="Exception.Divide"/>
+    <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
 </qualifiedTypeNameHistroy>

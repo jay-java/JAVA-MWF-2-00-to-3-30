@@ -1,9 +1,0 @@
-package OOPS;
-class P1{
-	
-}
-public interface multuipleINheritance {
-	public static void main(String[] args) {
-		
-	}
-}
