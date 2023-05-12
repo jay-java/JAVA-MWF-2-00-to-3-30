@@ -1,8 +1,0 @@
-package OOPS;
-//absraction -> hiding internal details and showing only essential
-//			    information to user
-public class AbstractionDemo {
-	public static void main(String[] args) {
-		
-	}
-}

@@ -1,8 +1,0 @@
-package OOPS;
-//polymorphism->poly(many) morphism(forms)==>same method name
-//				but having different functionalities
-//Two types->1.Compile time->Method oveloading
-//			2.Runtime->Method Overriding
-public class Polymorhpism {
-
-}

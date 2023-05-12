@@ -1,8 +1,0 @@
-package OOPS;
-
-public interface inter1 {
-	int id ;
-	String name;
-	double per;
-	public void interface1();
-}

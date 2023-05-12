@@ -1,6 +1,6 @@
 //1.for(initialize;condition;incre/decre)
 //2.while(condition){body}
-//3.do while
+//3.do{body} while(condition);
 //4.for each
 public class Loops {
 	public static void main(String[] args) {
