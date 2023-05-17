@@ -10,5 +10,7 @@ public class TypesCasting {
 		System.out.println(d1);
 		int j = (int)d1;
 		System.out.println(j);
+		ChangeValue c = new ChangeValue();
+		c.increase();
 	}
 }

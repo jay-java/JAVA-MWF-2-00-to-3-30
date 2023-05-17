@@ -22,11 +22,11 @@ class Users{
 
 public class ListPractical {
 	public static void main(String[] args) {
-		Users u1 = new Users(1, "krunal", 345.3, "ahmedabad");
-		Users u2 = new Users(2, "anvesh", 345.3, "ahmedabad");
-		Users u3 = new Users(3, "jainik", 345.3, "ahmedabad");
-		Users u4 = new Users(4, "dimple", 345.3, "ahmedabad");
-		Users u5 = new Users(5, "suhani", 345.3, "ahmedabad");
+		Users u1 = new Users(1, "krunal", 100, "ahmedabad");
+		Users u2 = new Users(2, "anvesh", 300, "ahmedabad");
+		Users u3 = new Users(3, "jainik", 400, "ahmedabad");
+		Users u4 = new Users(4, "dimple", 34, "ahmedabad");
+		Users u5 = new Users(5, "suhani", 500, "ahmedabad");
 		List<Users> list = new ArrayList<Users>();
 		list.add(u1);
 		list.add(u2);
