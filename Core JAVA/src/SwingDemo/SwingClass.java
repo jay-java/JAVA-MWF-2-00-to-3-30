@@ -2,6 +2,9 @@ package SwingDemo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -88,6 +91,17 @@ public class SwingClass implements ActionListener{
 	public static void main(String[] args) {
 		new SwingClass();
 	}
+	
+	public static Connection createConnection() {
+		Connection conn = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/swing", "root", "");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -103,6 +117,24 @@ public class SwingClass implements ActionListener{
 			System.out.println(contact);
 			System.out.println(address);
 			System.out.println(email);
+			try {
+				Connection conn = SwingClass.createConnection();
+				String sql="insert into user(id,name,contact,address,email) values(?,?,?,?,?)";
+				PreparedStatement pst = conn.prepareStatement(sql);
+				pst.setInt(1, id);
+				pst.setString(2, name);
+				pst.setLong(3, contact);
+				pst.setString(4, address);
+				pst.setString(5, email);
+				pst.executeUpdate();
+				System.out.println("date inserted successfully");
+				//executeUpdate->DML(insert,update,delete)
+				//executeQuery->DQL(select)
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+			
 		}
 		else if(e.getSource()==b2) {
 			System.out.println("search button clicked");
