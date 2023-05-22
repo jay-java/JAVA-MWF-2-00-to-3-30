@@ -5,10 +5,14 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 
 //before swing AWT-abstract window toolkit
@@ -18,8 +22,8 @@ import javax.swing.JTextField;
 //All classes and interface in swing are created in java.
 //light weight
 //javax->extended version of AWT
-public class SwingClass implements ActionListener{
-	JLabel l1, l2, l3, l4, l5;
+public class SwingClass implements ActionListener {
+	JLabel l1, l2, l3, l4, l5, l6;
 	JTextField t1, t2, t3, t4, t5;
 	JButton b1, b2, b3, b4;
 
@@ -28,6 +32,17 @@ public class SwingClass implements ActionListener{
 		fr.setVisible(true);
 		fr.setSize(700, 500);
 		fr.setLayout(null);
+
+		JMenuBar mb = new JMenuBar();
+
+		JMenu m1 = new JMenu("File");
+		mb.add(m1);
+
+		JMenuItem i1 = new JMenuItem("New");
+		JMenuItem i2 = new JMenuItem("Save");
+		m1.add(i1);
+		m1.add(i2);
+		fr.add(mb);
 
 		l1 = new JLabel("Id : ");
 		l1.setBounds(100, 100, 120, 20);
@@ -80,8 +95,7 @@ public class SwingClass implements ActionListener{
 		b4 = new JButton("Delete");
 		b4.setBounds(250, 330, 120, 20);
 		fr.add(b4);
-		
-		
+
 		b1.addActionListener(this);
 		b2.addActionListener(this);
 		b3.addActionListener(this);
@@ -91,7 +105,7 @@ public class SwingClass implements ActionListener{
 	public static void main(String[] args) {
 		new SwingClass();
 	}
-	
+
 	public static Connection createConnection() {
 		Connection conn = null;
 		try {
@@ -105,7 +119,7 @@ public class SwingClass implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource()==b1) {
+		if (e.getSource() == b1) {
 			System.out.println("insert buttton clicked");
 			int id = Integer.parseInt(t1.getText());
 			String name = t2.getText();
@@ -119,7 +133,7 @@ public class SwingClass implements ActionListener{
 			System.out.println(email);
 			try {
 				Connection conn = SwingClass.createConnection();
-				String sql="insert into user(id,name,contact,address,email) values(?,?,?,?,?)";
+				String sql = "insert into user(id,name,contact,address,email) values(?,?,?,?,?)";
 				PreparedStatement pst = conn.prepareStatement(sql);
 				pst.setInt(1, id);
 				pst.setString(2, name);
@@ -128,22 +142,89 @@ public class SwingClass implements ActionListener{
 				pst.setString(5, email);
 				pst.executeUpdate();
 				System.out.println("date inserted successfully");
-				//executeUpdate->DML(insert,update,delete)
-				//executeQuery->DQL(select)
-				
+				t1.setText("");
+				t2.setText("");
+				t3.setText("");
+				t4.setText("");
+				t5.setText("");
+				// executeUpdate->DML(insert,update,delete)
+				// executeQuery->DQL(select)
+
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
-			
-		}
-		else if(e.getSource()==b2) {
+
+		} else if (e.getSource() == b2) {
 			System.out.println("search button clicked");
-		}
-		else if(e.getSource()==b3) {
-			System.out.println("uapdte button clicked");
-		}
-		else if(e.getSource()==b4) {
+			int id = Integer.parseInt(t1.getText());
+			try {
+				Connection conn = SwingClass.createConnection();
+				String sql = "select * from user where id=?";
+				PreparedStatement pst = conn.prepareStatement(sql);
+				pst.setInt(1, id);
+				ResultSet rs = pst.executeQuery();
+				if (rs.next()) {
+					t1.setText(String.valueOf(rs.getInt("id")));
+					t2.setText(rs.getString("name"));
+					t3.setText(String.valueOf(rs.getLong("contact")));
+					t4.setText(rs.getString("address"));
+					t5.setText(rs.getString("email"));
+				} else {
+					System.out.println("data not found");
+					t1.setText("");
+					t2.setText("");
+					t3.setText("");
+					t4.setText("");
+					t5.setText("");
+					new DataNotFound();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		} else if (e.getSource() == b3) {
+			System.out.println("update button clicked");
+			int id = Integer.parseInt(t1.getText());
+			String name = t2.getText();
+			long contact = Long.parseLong(t3.getText());
+			String address = t4.getText();
+			String email = t5.getText();
+			try {
+				Connection conn = SwingClass.createConnection();
+				String sql = "update user set name=?,contact=?,address=?,email=? where id=?";
+				PreparedStatement pst = conn.prepareStatement(sql);
+				pst.setString(1, name);
+				pst.setLong(2, contact);
+				pst.setString(3, address);
+				pst.setString(4, email);
+				pst.setInt(5, id);
+				pst.executeUpdate();
+				System.out.println("data updated");
+				t1.setText("");
+				t2.setText("");
+				t3.setText("");
+				t4.setText("");
+				t5.setText("");
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		} else if (e.getSource() == b4) {
 			System.out.println("delete button clicked");
+			int id = Integer.parseInt(t1.getText());
+			try {
+				Connection conn = SwingClass.createConnection();
+				String sql = "delete from user where id=?";
+				PreparedStatement pst = conn.prepareStatement(sql);
+				pst.setInt(1, id);
+				pst.executeUpdate();
+				System.out.println("data deleted");
+				t1.setText("");
+				t2.setText("");
+				t3.setText("");
+				t4.setText("");
+				t5.setText("");
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 		}
 	}
 }
