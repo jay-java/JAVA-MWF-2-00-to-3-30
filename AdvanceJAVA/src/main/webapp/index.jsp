@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="UserController" method="get">
+	<form action="UserController" method="post">
 		<table>
 			<tr>
 				<td>Name :</td>
@@ -23,11 +23,11 @@
 			</tr>
 			<tr>
 				<td>Email :</td>
-				<td><input type="text" name="email"></td>
+				<td><input type="email" name="email"></td>
 			</tr>
 			<tr>
 				<td>Password :</td>
-				<td><input type="text" name="password"></td>
+				<td><input type="password" name="password"></td>
 			</tr>
 			<tr>
 				<td><input type="submit" name="action" value="register"></td>
