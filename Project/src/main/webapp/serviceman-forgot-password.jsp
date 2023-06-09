@@ -69,24 +69,12 @@
                 <h6 class="text-primary text-uppercase">// ServiceMan Login //</h6>
                 <h1 class="mb-5">ServiceMan Login</h1>
             </div>
-            <%String msg = (String)request.getAttribute("msg"); %>
-            <%if(msg!=null){ %>
-            	<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h4 class="mb-5"><%out.print(msg); %></h4>
-            </div>	
-            <%} %>
-              <%String msg1 = (String)request.getAttribute("msg1"); %>
-            <%if(msg1!=null){ %>
-            	<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h4 class="mb-5"><%out.print(msg1); %></h4>
-            </div>	
-            <%} %>
-              <%String msg2 = (String)request.getAttribute("msg2"); %>
-              <%if(msg2!=null){ %>
-            	<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h4 class="mb-5"><%out.print(msg2); %></h4>
-            </div>	
-            <%} %>
+          	<%String msg = (String)request.getAttribute("msg"); %>
+          	<%if(msg!=null){ %>
+          	 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h5 class="mb-5"><%out.print(msg); %></h5>
+            </div>
+          	<%} %>
             <div class="row g-4">
                 <div class="col-md-12">
                     <div class="wow fadeInUp" data-wow-delay="0.2s">
@@ -99,14 +87,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="password" class="form-control" id="subject" name="password" placeholder="Subject">
-                                        <label for="subject">Password</label>
-                                    </div>
-                                </div>
-                               
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" name="action" value="login" type="submit">Login</button>
+                                    <button class="btn btn-primary w-100 py-3" name="action" value="get otp" type="submit">Get OTP</button>
                                 </div>
                             </div>
                         </form>
@@ -114,7 +95,6 @@
                 </div>
             </div>
               <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h4 class="mb-5"><a href="serviceman-forgot-password.jsp">Forgot Password ?</a></h4>
             </div>
         </div>
     </div>

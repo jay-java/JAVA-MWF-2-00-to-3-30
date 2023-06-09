@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    	<%@include file="navbar.jsp" %>
+    	<%@include file="serviceman-navbar.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,55 +66,46 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="text-primary text-uppercase">// ServiceMan Login //</h6>
-                <h1 class="mb-5">ServiceMan Login</h1>
+                <h6 class="text-primary text-uppercase">// ServiceMan Register //</h6>
+                <h1 class="mb-5">ServiceMan Register</h1>
             </div>
-            <%String msg = (String)request.getAttribute("msg"); %>
-            <%if(msg!=null){ %>
-            	<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h4 class="mb-5"><%out.print(msg); %></h4>
-            </div>	
-            <%} %>
-              <%String msg1 = (String)request.getAttribute("msg1"); %>
-            <%if(msg1!=null){ %>
-            	<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h4 class="mb-5"><%out.print(msg1); %></h4>
-            </div>	
-            <%} %>
-              <%String msg2 = (String)request.getAttribute("msg2"); %>
-              <%if(msg2!=null){ %>
-            	<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h4 class="mb-5"><%out.print(msg2); %></h4>
-            </div>	
-            <%} %>
             <div class="row g-4">
                 <div class="col-md-12">
                     <div class="wow fadeInUp" data-wow-delay="0.2s">
-                        <form action="ServicemenController" method="post">
+                        <form action="ServiceController" method="post">
+                        	<input type="hidden" name="ser_id" value="<%=s.getId()%>">
                             <div class="row g-3">
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
+                                        <input type="text" class="form-control" id="name" name="stype" placeholder="Service Type">
+                                        <label for="name">Your Name</label>
+                                    </div>
+                                </div>
+                                 <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name" name="cmodel" placeholder="Car Model">
+                                        <label for="name">Your Contact</label>
+                                    </div>
+                                </div>
+                                 <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name" name="sprice" placeholder="Service Price">
+                                        <label for="name">Your Address</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="email" name="duration" placeholder="Duration">
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="password" class="form-control" id="subject" name="password" placeholder="Subject">
-                                        <label for="subject">Password</label>
-                                    </div>
-                                </div>
-                               
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" name="action" value="login" type="submit">Login</button>
+                                    <button class="btn btn-primary w-100 py-3" name="action" value="upload" type="submit">Upload</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
-              <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h4 class="mb-5"><a href="serviceman-forgot-password.jsp">Forgot Password ?</a></h4>
             </div>
         </div>
     </div>

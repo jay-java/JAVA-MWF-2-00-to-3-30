@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    	<%@include file="navbar.jsp" %>
+    <%@include file="serviceman-navbar.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,26 +66,21 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="text-primary text-uppercase">// ServiceMan Login //</h6>
-                <h1 class="mb-5">ServiceMan Login</h1>
+                <h6 class="text-primary text-uppercase">// ServiceMan Change Password //</h6>
+                <h1 class="mb-5">ServiceMan Change Password</h1>
             </div>
             <%String msg = (String)request.getAttribute("msg"); %>
             <%if(msg!=null){ %>
-            	<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h4 class="mb-5"><%out.print(msg); %></h4>
-            </div>	
+            </div>
             <%} %>
-              <%String msg1 = (String)request.getAttribute("msg1"); %>
+            
+            <%String msg1 = (String)request.getAttribute("msg1"); %>
             <%if(msg1!=null){ %>
-            	<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h4 class="mb-5"><%out.print(msg1); %></h4>
-            </div>	
-            <%} %>
-              <%String msg2 = (String)request.getAttribute("msg2"); %>
-              <%if(msg2!=null){ %>
-            	<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h4 class="mb-5"><%out.print(msg2); %></h4>
-            </div>	
+            </div>
             <%} %>
             <div class="row g-4">
                 <div class="col-md-12">
@@ -94,27 +89,35 @@
                             <div class="row g-3">
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
+                                        <input type="hidden" class="form-control" id="email" name="email" value="<%=s.getEmail() %>">
+                                        <label for="email">Your Email</label>
+                                    </div>
+                                </div>
+                                 <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="email" name="op" placeholder="Enter Old Password">
+                                        <label for="email">Your Email</label>
+                                    </div>
+                                </div>
+                                 <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="email" name="np" placeholder="Enter New Password">
+                                        <label for="email">Your Email</label>
+                                    </div>
+                                </div>
+                                 <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="email" name="cnp" placeholder="Confirm New Password">
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="password" class="form-control" id="subject" name="password" placeholder="Subject">
-                                        <label for="subject">Password</label>
-                                    </div>
-                                </div>
-                               
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" name="action" value="login" type="submit">Login</button>
+                                    <button class="btn btn-primary w-100 py-3" name="action" value="change password" type="submit">Change Password</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
-              <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h4 class="mb-5"><a href="serviceman-forgot-password.jsp">Forgot Password ?</a></h4>
             </div>
         </div>
     </div>
