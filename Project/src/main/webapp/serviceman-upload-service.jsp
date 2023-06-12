@@ -78,25 +78,25 @@
                                 <div class="col-md-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="name" name="stype" placeholder="Service Type">
-                                        <label for="name">Your Name</label>
+                                        <label for="name">Service Type</label>
                                     </div>
                                 </div>
                                  <div class="col-md-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="name" name="cmodel" placeholder="Car Model">
-                                        <label for="name">Your Contact</label>
+                                        <label for="name">Car Model</label>
                                     </div>
                                 </div>
                                  <div class="col-md-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="name" name="sprice" placeholder="Service Price">
-                                        <label for="name">Your Address</label>
+                                        <label for="name">Service Price</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="email" name="duration" placeholder="Duration">
-                                        <label for="email">Your Email</label>
+                                        <label for="email">Duration</label>
                                     </div>
                                 </div>
                                 <div class="col-12">

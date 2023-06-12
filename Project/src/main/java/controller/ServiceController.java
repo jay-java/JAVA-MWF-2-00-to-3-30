@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ServiceDao;
+import dao.ServicemanDao;
 import model.Serviceman_Services;
 
 /**
@@ -39,7 +41,13 @@ public class ServiceController extends HttpServlet {
 		String action = request.getParameter("action");
 		if(action.equalsIgnoreCase("upload")) {
 			Serviceman_Services s = new Serviceman_Services();
-			
+			s.setSer_id(Integer.parseInt(request.getParameter("ser_id")));
+			s.setStype(request.getParameter("stype"));
+			s.setCar_model(request.getParameter("cmodel"));
+			s.setSprice(Integer.parseInt(request.getParameter("sprice")));
+			s.setDuration(request.getParameter("duration"));
+			ServiceDao.insertService(s);
+			response.sendRedirect("serviceman-home.jsp");
 		}
 	
 	}
