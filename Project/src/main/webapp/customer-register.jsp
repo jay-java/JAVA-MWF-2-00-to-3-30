@@ -72,7 +72,7 @@
             <div class="row g-4">
                 <div class="col-md-12">
                     <div class="wow fadeInUp" data-wow-delay="0.2s">
-                        <form>
+                        <form action="CustomerController" method="post">
                             <div class="row g-3">
                                 <div class="col-md-12">
                                     <div class="form-floating">
@@ -106,7 +106,7 @@
                                 </div>
                                
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Register</button>
+                                    <button class="btn btn-primary w-100 py-3" type="submit" name="action" value="register">Register</button>
                                 </div>
                             </div>
                         </form>

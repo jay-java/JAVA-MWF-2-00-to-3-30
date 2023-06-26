@@ -49,7 +49,16 @@ public class ServiceController extends HttpServlet {
 			ServiceDao.insertService(s);
 			response.sendRedirect("serviceman-home.jsp");
 		}
-	
+		else if(action.equalsIgnoreCase("update")) {
+			Serviceman_Services s = new Serviceman_Services();
+			s.setSid(Integer.parseInt(request.getParameter("sid")));
+			s.setStype(request.getParameter("stype"));
+			s.setCar_model(request.getParameter("cmodel"));
+			s.setSprice(Integer.parseInt(request.getParameter("sprice")));
+			s.setDuration(request.getParameter("duration"));
+			ServiceDao.udpateService(s);
+			response.sendRedirect("serviceman-manage-service.jsp");
+		}
 	}
 
 }

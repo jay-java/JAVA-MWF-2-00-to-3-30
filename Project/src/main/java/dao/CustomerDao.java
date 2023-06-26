@@ -5,13 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import connection.DBConnection;
+import model.Customer;
 import model.ServiceMan;
 
-public class ServicemanDao {
-	public static void insertServiceman(ServiceMan s) {
+public class CustomerDao {
+	public static void insertCusotmer(Customer s) {
 		try {
 			Connection conn = DBConnection.crateConnection();
-			String sql="insert into serviceman(name,contact,address,email,password) values(?,?,?,?,?)";
+			String sql="insert into customer(name,contact,address,email,password) values(?,?,?,?,?)";
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setString(1, s.getName());
 			pst.setLong(2, s.getContact());
@@ -28,7 +29,7 @@ public class ServicemanDao {
 		boolean flag = false;
 		try {
 			Connection conn = DBConnection.crateConnection();
-			String sql="select * from serviceman where email=?";
+			String sql="select * from customer where email=?";
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setString(1, email);
 			ResultSet rs = pst.executeQuery();
@@ -40,17 +41,17 @@ public class ServicemanDao {
 		}
 		return flag;
 	}
-	public static ServiceMan servicemanLogin(ServiceMan s) {
-		ServiceMan s1 = null;
+	public static Customer customerLogin(Customer s) {
+		Customer s1 = null;
 		try {
 			Connection conn = DBConnection.crateConnection();
-			String sql="select * from serviceman where email=? and password=?";
+			String sql="select * from customer where email=? and password=?";
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setString(1, s.getEmail());
 			pst.setString(2, s.getPassword());
 			ResultSet rs  =pst.executeQuery();
 			if(rs.next()) {
-				s1 = new ServiceMan();
+				s1 = new Customer();
 				s1.setId(rs.getInt("id"));
 				s1.setName(rs.getString("name"));
 				s1.setContact(rs.getLong("contact"));
@@ -63,63 +64,16 @@ public class ServicemanDao {
 		}
 		return s1;
 	}
-	public static void updateServiceMan(ServiceMan s) {
+	public static Customer getCustomerById(int id) {
+		Customer s1 = null;
 		try {
 			Connection conn = DBConnection.crateConnection();
-			String sql="update serviceman set name=?,contact=?,address=?,email=? where id=?";
-			PreparedStatement pst = conn.prepareStatement(sql);
-			pst.setString(1, s.getName());
-			pst.setLong(2, s.getContact());
-			pst.setString(3,s.getAddress());
-			pst.setString(4, s.getEmail());
-			pst.setInt(5, s.getId());
-			pst.executeUpdate();
-			System.out.println("data updated");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	public static boolean checkOldPassword(String email,String op) {
-		boolean flag = false;
-		
-		try {
-			Connection conn = DBConnection.crateConnection();
-			String sql="select * from serviceman where email=? and password=?";
-			PreparedStatement pst = conn.prepareStatement(sql);
-			pst.setString(1, email);
-			pst.setString(2, op);
-			ResultSet rs = pst.executeQuery();
-			if(rs.next()) {
-				flag = true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return flag;
-	}
-	public static void updatePassword(String email,String np) {
-		try {
-			Connection conn = DBConnection.crateConnection();
-			String sql="update serviceman set password=? where email=?";
-			PreparedStatement pst = conn.prepareStatement(sql);
-			pst.setString(1, np);
-			pst.setString(2, email);
-			pst.executeUpdate();
-			System.out.println("password updated");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	public static ServiceMan getServicemanById(int id) {
-		ServiceMan s1 = null;
-		try {
-			Connection conn = DBConnection.crateConnection();
-			String sql="select * from serviceman where id=?";
+			String sql="select * from customer where id=?";
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, id);
 			ResultSet rs  =pst.executeQuery();
 			if(rs.next()) {
-				s1 = new ServiceMan();
+				s1 = new Customer();
 				s1.setId(rs.getInt("id"));
 				s1.setName(rs.getString("name"));
 				s1.setContact(rs.getLong("contact"));

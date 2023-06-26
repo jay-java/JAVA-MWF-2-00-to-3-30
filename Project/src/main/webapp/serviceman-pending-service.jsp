@@ -1,57 +1,20 @@
+<%@page import="dao.CustomerDao"%>
+<%@page import="model.Customer"%>
 <%@page import="dao.ServiceDao"%>
 <%@page import="model.Serviceman_Services"%>
+<%@page import="dao.BookingDao"%>
+<%@page import="model.BookService"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@include file="serviceman-navbar.jsp"%>
+    pageEncoding="UTF-8"%>
+    <%@include file="serviceman-navbar.jsp" %>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-<meta charset="utf-8">
-<title>CarServ - Car Repair HTML Template</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="" name="keywords">
-<meta content="" name="description">
-
-<!-- Favicon -->
-<link href="img/favicon.ico" rel="icon">
-
-<!-- Google Web Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap"
-	rel="stylesheet">
-
-<!-- Icon Font Stylesheet -->
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-	rel="stylesheet">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-	rel="stylesheet">
-
-<!-- Libraries Stylesheet -->
-<link href="lib/animate/animate.min.css" rel="stylesheet">
-<link href="lib/owlcarousel/assets/owl.carousel.min.css"
-	rel="stylesheet">
-<link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
-	rel="stylesheet" />
-
-<!-- Customized Bootstrap Stylesheet -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Template Stylesheet -->
-<link href="css/style.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
 <body>
-
-
-
-
-
 
 	<!-- Booking Start -->
 	
@@ -60,24 +23,30 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th scope="col">Service Type</th>
+							<th scope="col">Customer Name</th>
 							<th scope="col">Car Model</th>
 							<th scope="col">Service Price</th>
 							<th scope="col">Service Duration</th>
-							<th scope="col">Edit</th>
-							<th scope="col">Delete</th>
+							<th scope="col">Service Status</th>
+							<th scope="col">Payment Status</th>
+							<th scope="col">Confirm</th>
+							<th scope="col">Reject</th>
 						</tr>
 					</thead>
 					<tbody>
-					<%List<Serviceman_Services> list = ServiceDao.getServicesBySid(s.getId()); %>
-					<%for(Serviceman_Services s1:list){ %>
+					<%List<BookService> list = BookingDao.getPendingServiceByServicemanId(s.getId()); %>
+					<%for(BookService s1:list){ %>
+							<%Customer ser = CustomerDao.getCustomerById(s1.getCid()); %>
+							<%Serviceman_Services service = ServiceDao.getSingleServiceBySid(s1.getSid()); %>
 						<tr>
-							<th scope="row"><%=s1.getStype() %></th>
-							<td><%=s1.getCar_model() %></td>
-							<td><%=s1.getSprice() %></td>
-							<td><%=s1.getDuration() %></td>
-							<td><a href="serviceman-single-service.jsp?id=<%=s1.getSid()%>">Edit</a></td>
-							<td><a href="serviceman-delete-service.jsp?id=<%=s1.getSid()%>">Delete</a></td>
+							<th scope="row"><%=ser.getName() %></th>
+							<td><%=service.getCar_model() %></td>
+							<td><%=service.getSprice() %></td>
+							<td><%=service.getDuration() %></td>
+							<td><%=s1.getBooking_status() %></td>
+							<td><%=s1.getPayment_status() %></td>
+							<td><a href="#">Confirm</a></td>
+							<td><a href="#">Reject</a></td>
 						</tr>
 						<%} %>
 					</tbody>
@@ -186,6 +155,6 @@
 
 	<!-- Template Javascript -->
 	<script src="js/main.js"></script>
-</body>
 
+</body>
 </html>

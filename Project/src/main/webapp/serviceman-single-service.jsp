@@ -58,7 +58,7 @@
                 <div class="col-md-12">
                     <div class="wow fadeInUp" data-wow-delay="0.2s">
                         <form action="ServiceController" method="post">
-                        	<input type="hidden" name="ser_id" value="<%=s.getId()%>">
+                        	<input type="hidden" name="sid" value="<%=s1.getSid()%>">
                             <div class="row g-3">
                                 <div class="col-md-12">
                                     <div class="form-floating">
