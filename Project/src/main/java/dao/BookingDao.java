@@ -72,4 +72,62 @@ public class BookingDao {
 		}
 		return list;
 	}
+	public static void updateBookingStatus(int id) {
+		try {
+			Connection conn = DBConnection.crateConnection();
+			String sql="update book_services set service_status='confirm' where bid=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			pst.executeUpdate();
+			System.out.println("status updated");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static List<BookService> getCompleteServiceByServicemanId(int id){
+		List<BookService> list  = new ArrayList<BookService>();
+		try {
+			Connection conn = DBConnection.crateConnection();
+			String sql="select * from book_services where serviceman_id=? and service_status='confirm'";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				BookService b = new BookService();
+				b.setBid(rs.getInt("bid"));
+				b.setCid(rs.getInt("cid"));
+				b.setSid(rs.getInt("service_id"));
+				b.setServiceman_id(rs.getInt("serviceman_id"));
+				b.setBooking_status(rs.getString("service_status"));
+				b.setPayment_status(rs.getString("payment_status"));
+				list.add(b);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public static List<BookService> getCompleteServiceByCustomerId(int id){
+		List<BookService> list  = new ArrayList<BookService>();
+		try {
+			Connection conn = DBConnection.crateConnection();
+			String sql="select * from book_services where cid=? and service_status='confirm'";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				BookService b = new BookService();
+				b.setBid(rs.getInt("bid"));
+				b.setCid(rs.getInt("cid"));
+				b.setSid(rs.getInt("service_id"));
+				b.setServiceman_id(rs.getInt("serviceman_id"));
+				b.setBooking_status(rs.getString("service_status"));
+				b.setPayment_status(rs.getString("payment_status"));
+				list.add(b);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

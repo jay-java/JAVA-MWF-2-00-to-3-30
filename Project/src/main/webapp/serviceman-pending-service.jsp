@@ -45,7 +45,7 @@
 							<td><%=service.getDuration() %></td>
 							<td><%=s1.getBooking_status() %></td>
 							<td><%=s1.getPayment_status() %></td>
-							<td><a href="#">Confirm</a></td>
+							<td><a href="BookingController?action=confirm&bid=<%=s1.getBid()%>">Confirm</a></td>
 							<td><a href="#">Reject</a></td>
 						</tr>
 						<%} %>
