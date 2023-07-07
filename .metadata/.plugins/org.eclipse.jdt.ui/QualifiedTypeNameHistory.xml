@@ -49,8 +49,6 @@
     <fullyQualifiedTypeName name="model.Serviceman_Services"/>
     <fullyQualifiedTypeName name="dao.ServiceDao"/>
     <fullyQualifiedTypeName name="dao.CustomerDao"/>
-    <fullyQualifiedTypeName name="dao.BookingDao"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="model.BookService"/>
     <fullyQualifiedTypeName name="model.ServiceMan"/>
     <fullyQualifiedTypeName name="model.Customer"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="dao.BookingDao"/>
 </qualifiedTypeNameHistroy>
