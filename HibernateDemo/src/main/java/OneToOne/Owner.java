@@ -15,8 +15,8 @@ public class Owner {
 	private int id;
 	private String name;
 	private String address;
-	@OneToOne(mappedBy = "ownerName")
-	@JoinColumn(name = "vehicle_id")
+	@OneToOne
+	@JoinColumn(name="v_id")
 	private Vehicle vehicleName;
 	public int getId() {
 		return id;

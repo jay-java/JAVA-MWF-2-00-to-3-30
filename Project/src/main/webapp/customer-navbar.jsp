@@ -1,6 +1,6 @@
 <%@page import="model.Customer"%>
 <%@page import="model.ServiceMan"%>
-<%@page import="dao.ServicemanDao"%>
+<%@page import="userdao.ServicemanDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>

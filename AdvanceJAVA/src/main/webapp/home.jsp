@@ -1,4 +1,4 @@
-<%@page import="dao.UserDao"%>
+<%@page import="userdao.UserDao"%>
 <%@page import="java.util.List"%>
 <%@page import="model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
