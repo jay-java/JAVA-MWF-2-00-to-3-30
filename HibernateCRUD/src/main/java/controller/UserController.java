@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.User;
 import userdao.UserDao;
 
-@WebServlet("/UserController")
+@WebServlet("/UserCon")
 public class UserController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

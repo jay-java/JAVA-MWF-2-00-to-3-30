@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="UserController" method="post">
+	<form action="UserCon" method="post">
 		<table>
 			<tr>
 				<td>Name :</td>
