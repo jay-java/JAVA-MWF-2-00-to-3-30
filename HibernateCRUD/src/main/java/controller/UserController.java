@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.User;
 import userdao.UserDao;
@@ -29,7 +30,7 @@ public class UserController extends HttpServlet {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 		//login condition
-		/*else if(action.equalsIgnoreCase("login")) {
+		else if(action.equalsIgnoreCase("login")) {
 			User u = new User();
 			u.setEmail(request.getParameter("email"));
 			u.setPassword(request.getParameter("password"));
@@ -53,7 +54,7 @@ public class UserController extends HttpServlet {
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 		}
-		else if(action.equalsIgnoreCase("edit")) {
+		/*else if(action.equalsIgnoreCase("edit")) {
 			int id = Integer.parseInt(request.getParameter("id"));
 			User u = UserDao.getUserById(id);
 			request.setAttribute("user", u);

@@ -16,7 +16,7 @@ String msg  = (String)request.getAttribute("msg");
 	out.print(msg);
 } 
 %>
-<form action="UserController" method="post">
+<form action="UserCon" method="post">
 		<table>
 			<tr>
 				<td>Email :</td>

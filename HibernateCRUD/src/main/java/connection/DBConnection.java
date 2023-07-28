@@ -27,7 +27,6 @@ public class DBConnection {
 		cfg.addProperties(prop).addAnnotatedClass(User.class);
 		sf = cfg.buildSessionFactory();
 		session = sf.openSession();
-		
 		return session;
 	}
 }
