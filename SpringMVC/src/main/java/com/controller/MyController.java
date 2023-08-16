@@ -1,10 +1,12 @@
 package com.controller;
 
+import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +18,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class MyController {
+	@Autowired
+	private UserDao dao;
 	
 	@RequestMapping("/")
 	public String indexPage(Model m) {
@@ -41,9 +45,15 @@ public class MyController {
 	}
 	
 	@RequestMapping("/register")
-	public void getRequest(@ModelAttribute User u) {
-		System.out.println(u);
+	public ModelAndView getRequest(@ModelAttribute User u) {
+		this.dao.insertUpdateUser(u);
+		ModelAndView m = new ModelAndView();
+		List<User> list = this.dao.getAllUsers();
+		m.addObject("list", list);
+		m.setViewName("home");
+		return m;
 	}
+	
 	
 //	@RequestMapping("/register")
 //	public void getRequest(HttpServletRequest request) {
