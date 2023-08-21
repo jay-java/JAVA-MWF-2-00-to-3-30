@@ -52,6 +52,9 @@
 					class="btn btn-primary">Submit</button>
 			</div>
 		</form>
+		<div class="text-center">
+			<h1 class="text-center"><a href="home">Home</a></h1>
+		</div>
 	</div>
 	<!-- Optional JavaScript; choose one of the two! -->
 
